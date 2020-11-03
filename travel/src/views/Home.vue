@@ -9,7 +9,7 @@
           </h2>
         </router-link>
         <figure>
-          <router-link :to="destination.name">
+          <router-link :to="destination.slug">
             <img
               :src="require(`@/assets/${destination.image}`)"
               :alt="destination.name"
