@@ -7,3 +7,13 @@
     <router-link to="/panama">Panama</router-link>
   </div>
 </template>
+
+<style lang="sass" scoped>
+#nav
+  padding: 30px
+  a
+    font-weight: bold
+    color: #2c3e50
+  .vacation-active-class
+    color: purple
+</style>
