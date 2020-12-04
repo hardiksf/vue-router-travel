@@ -1,12 +1,31 @@
 <template>
   <div class="navigation">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/brazil">Brazil</router-link> |
-    <router-link to="/hawaii">Hawaii</router-link> |
-    <router-link to="/jamaica">Jamaica</router-link> |
-    <router-link to="/panama">Panama</router-link>
+    <span>
+      <router-link to="/"><h2>Home</h2></router-link>
+    </span>
+    <span v-for="destination in destinations" :key="destination.name">
+        <!-- named route -->
+        <router-link :to="{ name: 'DestinationDetail', params: {id:destination.id} }">
+          <h2>
+            {{ destination.name }}
+          </h2>
+        </router-link>
+      </span>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import store from '@/store';
+
+export default {
+  data() {
+    return {
+      destinations: store.destinations,
+    };
+  },
+};
+</script>
 
 <style lang="sass" scoped>
 #nav
@@ -16,4 +35,8 @@
     color: #2c3e50
   .vacation-active-class
     color: purple
+.navigation
+  display: flex
+  justify-content: space-around
+  align-items: baseline
 </style>
